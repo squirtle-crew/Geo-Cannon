@@ -7,10 +7,12 @@ module.exports = function(sequelize, DataTypes){
         len: [1, 140]
       }
     },
+
     longitude: {
       type: DataTypes.FLOAT(1, 20),
       allowNull: false
     },
+
     latitude: {
       type: DataTypes.FLOAT(1, 20),
       allowNull: false

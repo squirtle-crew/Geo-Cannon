@@ -1,15 +1,11 @@
 body{
-
   background: url('../turtle_background.jpg');
-  /*opacity: 0.9;*/
-
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
-
-
 .img{
-
 opacity: 0.2;
-
 }
 
 .navbar-inner{ /*changes color of navbar box*/

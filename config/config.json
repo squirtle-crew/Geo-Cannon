@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "program1",
-    "database": "database_development",
+    "database": "cannon_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

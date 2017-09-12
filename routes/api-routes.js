@@ -2,8 +2,6 @@ var db = require("../models");
 
 module.exports = function(app){
 
-<<<<<<< HEAD
-=======
   app.get("/api/signin", function(req, res){
     db.Users.findOne({
       where: {
@@ -24,7 +22,6 @@ module.exports = function(app){
     res.redirect("/");
   });
 
->>>>>>> 67c6d92ea2c0b5bc8456d16a3c86f5eae58b8dea
   app.get("/api/posts/:id", function(req, res){
 
     db.Posts.findAll({
@@ -36,7 +33,7 @@ module.exports = function(app){
     });
   });
 
-  app.post("/api/post". function(req, res){
+  app.post("/api/post", function(req, res){
 
     db.Posts.create({
       post: req.body.post,

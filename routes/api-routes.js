@@ -17,10 +17,10 @@ module.exports = function(app){
       name: req.body.name,
       username: req.body.username,
       password:req.body.password
-    });
-  }).then(function(){
+    }).then(function(){
     res.redirect("/");
   });
+  })
 
   app.get("/api/posts/:id", function(req, res){
 

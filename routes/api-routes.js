@@ -2,16 +2,20 @@ var db = require("../models");
 
 module.exports = function(app){
 
-  app.get("/api/users", function(req, res){
-    db.Users.findAll({}).then(function(results){
+  app.get("/api/users/:username", function(req, res){
+    db.Users.findOne({
+      where: {
+        username: req.params.username
+      }
+    }).then(function(results){
       res.json(results);
     });
   });
 
-  app.get("/api/signin", function(req, res){
+  app.get("/api/signin/:username", function(req, res){
     db.Users.findOne({
       where: {
-        username: req.body.username
+        username: req.params.username
       }
     }).then(function(results){
       res.json(results);

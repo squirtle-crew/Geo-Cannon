@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>GeoCannon Location</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+    #map {
+    height: 100%;
+    }
+    html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    }
+    </style>
+  </head>
+  <body>
+  <div class="col-md-6 container-fluid">
+            <div id="mapDiv" class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Map</h3>
+              </div>
+            </div>
+          </div>
+
+          <div id="map"></div>
+
+    <script type="text/javascript" src="js/view.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPyXEGlTM-ZZkhsdd3ZYeVheDM8Jtl5aQ&callback=initMap">
+    </script>
+  </body>
+</html>

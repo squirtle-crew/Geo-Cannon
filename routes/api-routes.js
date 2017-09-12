@@ -17,10 +17,10 @@ module.exports = function(app){
       name: req.body.name,
       username: req.body.username,
       password:req.body.password
-    });
-  }).then(function(){
+    }).then(function(){
     res.redirect("/");
   });
+  })
 
   app.get("/api/posts/:id", function(req, res){
 
@@ -33,7 +33,7 @@ module.exports = function(app){
     });
   });
 
-  app.post("/api/post". function(req, res){
+  app.post("/api/post", function(req, res){
 
     db.Posts.create({
       post: req.body.post,

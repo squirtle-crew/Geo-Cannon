@@ -3,6 +3,7 @@ var db = require("../models");
 module.exports = function(app){
 
   app.get("/api/users/:username", function(req, res){
+
     db.Users.findOne({
       where: {
         username: req.params.username
@@ -13,6 +14,7 @@ module.exports = function(app){
   });
 
   app.get("/api/signin/:username", function(req, res){
+
     db.Users.findOne({
       where: {
         username: req.params.username
@@ -23,6 +25,7 @@ module.exports = function(app){
   });
 
   app.post("/api/signup", function(req, res){
+    
     db.Users.create({
       name: req.body.name,
       username: req.body.username,

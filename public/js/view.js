@@ -2,13 +2,13 @@ $(document).ready(function(){
 
 
   function signUp(){
-
     var newUser = {
       name: $("#newName").val().trim(),
       username: $("#newUsername").val().trim(),
       password: $("#newPassword").val().trim()
     }
     var userName = $("#newUsername").val().trim();
+
     $.get("/api/users/" + userName, function(data){
       console.log(data);
 
@@ -28,9 +28,9 @@ $(document).ready(function(){
   }
 
   function signIn(){
-
     var userName = $("#username").val().trim();
     var password = $("#password").val().trim();
+
     $.get("/api/signin/" + userName, function(data){
       console.log(data);
 
@@ -48,7 +48,6 @@ $(document).ready(function(){
   }
   //
   // function newPost(){
-  //
   //   var newPost = {
   //     post: $("#newpost").val().trim(),
   //     longitude:
@@ -61,8 +60,8 @@ $(document).ready(function(){
   // }
   //
   // function getPost(){
-  //
   //   var id = $(this).data("id");
+  //
   //   $.get("/api/posts/" + id, function(data){
   //     console.log(data);
   //     for(i = 0, i < data.length; i++){

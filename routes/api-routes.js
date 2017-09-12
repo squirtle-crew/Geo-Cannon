@@ -2,6 +2,12 @@ var db = require("../models");
 
 module.exports = function(app){
 
+  app.get("/api/users", function(req, res){
+    db.Users.findAll({}).then(function(results){
+      res.json(results);
+    });
+  });
+
   app.get("/api/signin", function(req, res){
     db.Users.findOne({
       where: {
@@ -17,9 +23,9 @@ module.exports = function(app){
       name: req.body.name,
       username: req.body.username,
       password:req.body.password
-    });
-  }).then(function(){
-    res.redirect("/");
+    }).then(function(){
+      res.redirect("/");
+  });
   });
 
   app.get("/api/posts/:id", function(req, res){
@@ -33,7 +39,7 @@ module.exports = function(app){
     });
   });
 
-  app.post("/api/post". function(req, res){
+  app.post("/api/post", function(req, res){
 
     db.Posts.create({
       post: req.body.post,

@@ -1,35 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--  OUR CSS STYLE SHEET -->
+    <link rel="stylesheet" href="css/style.css">
     <title>GeoCannon Location</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <style>
-    #map {
-    height: 400px;
-    width: 100%;
-    }
-    html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    }
-    </style>
   </head>
   <body>
-    <div class="container col-md-6">
-      <h2>GeoCannon</h2>
-      <div class="panel panel-primary">
-        <div class="panel-heading">Friend's Map</div>
-        <div id="map" class="panel-body">Map</div>
+    <div class="container-fluid ">
+      <div class="row">
+        <div class="col-lg-12">
+          <nav class="navbar navbar-default navbar-inner">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <a class="navbar-brand navbarColor" href="#">Geo-Cannon</a>
+                <ul class="nav navbar-nav navbar-inner">
+                  <li><a class="navbarColor" href="#">How It Works <span class="sr-only">(current)</span></a></li>
+                  <li><a href="#" class="navbarColor">About</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
       </div>
+      <div class="row">
+        <div class="container col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">Friend's Map</div>
+            <div id="map" class="panel-body">Map</div>
+          </div>
+        </div>
+        <div class="container col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">Your Posts</div>
+            <div class="panel-body">Messages</div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- OUR JS -->
+      <script type="text/javascript" src="js/view.js"></script>
+      <!-- GOOGLE API KEY -->
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPyXEGlTM-ZZkhsdd3ZYeVheDM8Jtl5aQ&callback=initMap">
+      </script>
+      <!-- BOOTSTRAP CDN -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <!-- JQUERY CDN -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </div>
-    
-    
-    <script type="text/javascript" src="js/view.js"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPyXEGlTM-ZZkhsdd3ZYeVheDM8Jtl5aQ&callback=initMap">
-    </script>
   </body>
 </html>

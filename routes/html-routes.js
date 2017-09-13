@@ -7,13 +7,10 @@ module.exports = function(app){
     res.sendFile(path.join(__dirname, "../public/main.html"));
   });
 
-  app.post("/app", function(req, res){
+  app.get("/app", function(req, res){
     console.log("this works");
     res.sendFile(path.join(__dirname, "../public/app.html"));
   });
 
-  app.get("/app", function(req, res){
-    res.redirect("/");
-  });
 
 }

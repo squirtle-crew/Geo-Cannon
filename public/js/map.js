@@ -14,23 +14,40 @@ function initMap() {
     });
     infoWindow = new google.maps.InfoWindow;
 
+
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
+            // -----------------CURRENT POSITION START----------------
             var pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
             console.log(pos);
+            // -----------------CURRENT POSITION END-------------------
+            // ------------------TURTLE ICON START---------------------
+            var icon = {
+                url: "images/turtle-icon.png",
+                scaledSize: new google.maps.Size(60, 60),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+            };
 
+            var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                icon: icon
+            });
+            // ------------------TURTLE ICON END---------------------
             infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
+            infoWindow.setContent('<h4><u>Andrews Message</u></h4>' + '<p>Hello Everyone!</p>');
+
             infoWindow.open(map);
             map.setCenter(pos);
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
     } else {
-    
+
         handleLocationError(false, infoWindow, map.getCenter());
     }
 }

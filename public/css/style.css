@@ -22,7 +22,12 @@ opacity: 0.2;
 
 }
 
+.geoPull{
 
+  position:fixed!important;
+  left:0px!important;
+
+}
 
 .panel-color{
 

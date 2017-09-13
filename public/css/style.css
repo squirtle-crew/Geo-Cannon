@@ -1,4 +1,3 @@
-
 body{
   background: url('../turtle_background.jpg');
   height: 100%;
@@ -8,16 +7,20 @@ body{
 .img{
 opacity: 0.2;
 }
+
 .navbar-inner{ /*changes color of navbar box*/
 
   background: transparent!important;
   border: 1px solid transparent!important;
   margin-bottom:50px!important;
-}
-.navbarColor{    /*changes color of navbar content*/
-  color:white!important;
+
 }
 
+.navbarColor{    /*changes color of navbar content*/
+
+  color:white!important;
+
+}
 
 .geoPull{
 
@@ -27,9 +30,7 @@ opacity: 0.2;
 }
 
 .panel-color{
+
   background-color:#4a4c4f!important;
+
 }
-#map {
-    height: 400px;
-    width: 100%;
-    }

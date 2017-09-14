@@ -7,7 +7,6 @@
 // failed.", it means you did not give permission for the browser to
 // locate you.
 var map, infoWindow;
-var idArray = [];
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {
@@ -26,18 +25,36 @@ function initMap() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            // function newPost(){
-            //   var newPost = {
-            //     post: $("#newpost").val().trim(),
-            //     longitude: pos.lng,
-            //     latitude: pos.lat,
-            //     UserId: idArray[0] 
-            //   }
-            //
-            //   $.post("/api/post", newPost);
-            //   getPost();
-            //   $("#newpost").val("");
-            // }
+              var placeHolderInput= window.location.href.split("#");
+              var queryInput = placeHolderInput[1].replace(/ /g, '+');
+              console.log(queryInput);
+              $.get("/api/users/" + queryInput, function(data){
+                console.log(data);
+                var newPost = {
+                  post: $("#UserInput").val().trim(),
+                  longitude: pos.lng,
+                  latitude: pos.lat,
+                  UserId: data.id
+                }
+
+                $.post("/api/post", newPost);
+                var id = data.id
+
+                $.get("/api/posts/" + id, function(data){
+                  console.log(data);
+                  var newDiv = $("<div>");
+                  for(i = 0; i < data.length; i++){
+
+                    var list = $("<li>");
+                    list.html(data[i].post);
+                    newDiv.append(list);
+                  }
+                  $(".userspost").html(newDiv);
+                });
+                $("#UserInput").val("");
+              });
+
+
             console.log(pos);
             // -----------------CURRENT POSITION END-------------------//
             // ------------------TURTLE ICON START---------------------//
@@ -54,8 +71,16 @@ function initMap() {
                 icon: icon
             });
             // ------------------TURTLE ICON END---------------------//
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('<h4><u>Andrews Message</u></h4>' + '<p>Hello Everyone!</p>');
+            // -----------------USER MESSAGE START-------------------//
+            var contentString = '<h4><u>Andrews Message</u></h4>' + '<p>Hello Everyone!</p>';
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString,
+                maxWidth: 200
+            });
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+            // -----------------USER MESSAGE END-------------------//
 
             infoWindow.open(map);
             map.setCenter(pos);
@@ -116,10 +141,8 @@ $(document).ready(function(){
       console.log(password);
       if(data.username === userName && data.password === password){
 
-        window.location.href = "/app";
-        idArray = [];
-        idArray.push(data.id);
-        // getPost();
+        window.location.href = "/app#" + data.username;
+        getPost();
       }
       else{
 
@@ -128,24 +151,23 @@ $(document).ready(function(){
       }
     });
   }
-  //
-  //
-  // function getPost(){
-  //   var id = $(this).data("id");
-  //
-  //   $.get("/api/posts/" + id, function(data){
-  //     console.log(data);
-  //     for(i = 0, i < data.length; i++){
-  //       var newDiv = $("<div>");
-  //       newDiv.append(data[i].post);
-  //
-  //       $("#userspost").html(newDiv);
-  //     }
-  //   });
-  // }
+
+
+  function getPost(){
+    var id = $(this).data("id");
+
+    $.get("/api/posts/" + id, function(data){
+      console.log(data);
+      var newDiv = $("<div>");
+      for(i = 0; i < data.length; i++){
+        newDiv.html(data[i].post);
+      }
+      $(".userspost").html(newDiv);
+    });
+  }
 
   $(document).on("click", ".signUp", signUp);
   $(document).on("click", ".signIn", signIn);
-  // $(document).on("click", ".newPost", initMap);
+  $(document).on("click", ".newPost", initMap);
 
 });

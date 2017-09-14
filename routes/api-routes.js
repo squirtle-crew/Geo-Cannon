@@ -39,7 +39,7 @@ module.exports = function(app){
 
     db.Posts.findAll({
       where: {
-        id: req.params.id
+        UserId: req.params.id
       }
     }).then(function(dbPosts){
       res.json(dbPosts);
@@ -51,7 +51,8 @@ module.exports = function(app){
     db.Posts.create({
       post: req.body.post,
       longitude: req.body.longitude,
-      latitude: req.body.latitude
+      latitude: req.body.latitude,
+      UserId: req.body.UserId
     }).then(function(dbPost){
       res.json(dbPost);
     });

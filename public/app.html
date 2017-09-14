@@ -3,6 +3,8 @@
   <head>
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- JQUERY CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--  OUR CSS STYLE SHEET -->
     <link rel="stylesheet" href="css/style.css">
     <title>GeoCannon Location</title>
@@ -14,22 +16,22 @@
       <div class="row">
         <!-- START OF NAV BAR -->
         <div class="col-lg-12">
-          <nav class="navbar navbar-default navbar-inner navbar-right">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-content">
-              <span class="navbar-toggler-icon"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              </button>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="nav-content">
-              <a class="navbar-brand navbarColor navbar-left geoPull" href="#">Geo-Cannon</a>
-              <ul class="nav navbar-nav navbar-inner">
-                <li><a class="navbarColor" href="#">How It Works <span class="sr-only">(current)</span></a></li>
-                <li><a href="#" class="navbarColor">About</a></li>
-              </ul>
+          <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Geo-Cannon</a>
+              </div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#"><span></span>How It Works</a></li>
+                  <li><a href="#"><span></span>About</a></li>
+                </ul>
+              </div>
             </div>
           </nav>
         </div>
@@ -37,32 +39,42 @@
       <!-- END OF NAV BAR -->
       <div class="row">
         <!-- MAP START -->
-        <div class="container col-md-8">
+        <div class="container col-md-12">
           <div class="panel panel-primary">
             <div class="panel-heading">Friend's Map</div>
             <div id="map" class="panel-body">Map</div>
           </div>
         </div>
         <!-- MAP END -->
-        <!-- POST START -->
-        <div class="container col-md-4">
-          <div class="panel panel-primary">
-            <div class="panel-heading">Your Posts</div>
-            <div class="panel-body">Messages</div>
-          </div>
-        </div>
-        <!-- POST END -->
       </div>
-      <!-- OUR JS -->
-      <script type="text/javascript" src="js/view.js"></script>
-      <!-- GOOGLE API KEY -->
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPyXEGlTM-ZZkhsdd3ZYeVheDM8Jtl5aQ&callback=initMap">
-      </script>
-      <!-- BOOTSTRAP CDN -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <!-- JQUERY CDN -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <div class="row">
+        <div class="container col-md-6">
+          <div class="form-group">
+            <label style="color:white" for="UserInput">Your Message:</label>
+            <input type="UserInput" class="form-control" id="UserInput" placeholder="Enter Message" name="message">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <br>
+      <!-- POST START -->
+      <div class="container col-md-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Your Posts</div>
+          <div class="panel-body">Messages</div>
+        </div>
+      </div>
+      <!-- POST END -->
     </div>
-  </body>
+    <!-- OUR JS -->
+    <script type="text/javascript" src="js/view.js"></script>
+    <!-- GOOGLE API KEY -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPyXEGlTM-ZZkhsdd3ZYeVheDM8Jtl5aQ&callback=initMap">
+    </script>
+    <!-- BOOTSTRAP CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+  </div>
+</body>
 </html>

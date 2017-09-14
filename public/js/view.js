@@ -28,17 +28,17 @@ function initMap() {
               var placeHolderInput= window.location.href.split("#");
               var queryInput = placeHolderInput[1].replace(/ /g, '+');
               console.log(queryInput);
-              $.get("/api/users/" + queryInput, function(data){
-                console.log(data);
+              $.get("/api/users/" + queryInput, function(results){
+                console.log(results);
                 var newPost = {
                   post: $("#UserInput").val().trim(),
                   longitude: pos.lng,
                   latitude: pos.lat,
-                  UserId: data.id
+                  UserId: results.id
                 }
 
                 $.post("/api/post", newPost);
-                var id = data.id
+                var id = results.id
 
                 $.get("/api/posts/" + id, function(data){
                   console.log(data);
@@ -50,9 +50,9 @@ function initMap() {
                     newDiv.append(list);
                   }
                   $(".userspost").html(newDiv);
-                });
+
                 $("#UserInput").val("");
-              });
+
 
 
             console.log(pos);
@@ -72,13 +72,15 @@ function initMap() {
             });
             // ------------------TURTLE ICON END---------------------//
             // -----------------USER MESSAGE START-------------------//
-            var contentString = '<h4><u>Andrews Message</u></h4>' + '<p>Hello Everyone!</p>';
+            var contentString = '<h4><u>' + results.name + 's Message</u></h4>' + '<p>'+ data[0].updatedAt + '</p>' + '<p>' + data[0].post +'</p>';
             var infowindow = new google.maps.InfoWindow({
                 content: contentString,
                 maxWidth: 200
             });
             marker.addListener('click', function() {
                 infowindow.open(map, marker);
+            });
+            });
             });
             // -----------------USER MESSAGE END-------------------//
 

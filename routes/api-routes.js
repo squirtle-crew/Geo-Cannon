@@ -38,6 +38,8 @@ module.exports = function(app){
   app.get("/api/posts/:id", function(req, res){
 
     db.Posts.findAll({
+      limit: 5, 
+      order: [['updatedAt', 'DESC']],
       where: {
         UserId: req.params.id
       }

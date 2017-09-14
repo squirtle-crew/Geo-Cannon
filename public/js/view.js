@@ -40,7 +40,6 @@ $(document).ready(function(){
       if(data.username === userName && data.password === password){
 
         window.location.href = "/app#" + data.username;
-        getPost();
       }
       else{
 

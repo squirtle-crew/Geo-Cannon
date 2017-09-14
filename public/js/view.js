@@ -51,8 +51,7 @@ function initMap() {
                   }
                   $(".userspost").html(newDiv);
 
-                $("#UserInput").val("");
-
+                  $("#UserInput").val("");
 
 
             console.log(pos);
@@ -65,8 +64,13 @@ function initMap() {
                 anchor: new google.maps.Point(17, 34),
             };
 
+            var post = {
+              lat: parseFloat(data[0].latitude),
+              lng: parseFloat(data[0].longitude)
+            }
+
             var marker = new google.maps.Marker({
-                position: pos,
+                position: post,
                 map: map,
                 icon: icon
             });

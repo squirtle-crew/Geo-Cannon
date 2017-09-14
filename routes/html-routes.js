@@ -8,7 +8,6 @@ module.exports = function(app){
   });
 
   app.get("/app", function(req, res){
-    console.log("this works");
     res.sendFile(path.join(__dirname, "../public/app.html"));
   });
 

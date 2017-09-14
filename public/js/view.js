@@ -7,7 +7,7 @@
 // failed.", it means you did not give permission for the browser to
 // locate you.
 var map, infoWindow;
-
+var idArray = [];
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {
@@ -30,7 +30,8 @@ function initMap() {
             //   var newPost = {
             //     post: $("#newpost").val().trim(),
             //     longitude: pos.lng,
-            //     latitude: pos.lat
+            //     latitude: pos.lat,
+            //     UserId: idArray[0] 
             //   }
             //
             //   $.post("/api/post", newPost);
@@ -116,6 +117,8 @@ $(document).ready(function(){
       if(data.username === userName && data.password === password){
 
         window.location.href = "/app";
+        idArray = [];
+        idArray.push(data.id);
         // getPost();
       }
       else{

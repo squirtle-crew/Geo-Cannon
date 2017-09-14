@@ -82,7 +82,6 @@ function initMap() {
             });
             // -----------------USER MESSAGE END-------------------//
 
-            infoWindow.open(map);
             map.setCenter(pos);
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());

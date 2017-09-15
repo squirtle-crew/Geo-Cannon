@@ -1,56 +1,53 @@
-
 //----------------functions for sign in and sign up on home page-----------------//
 
-$(document).ready(function(){
+$(document).ready(function() {
 
-  function signUp(){
-    var newUser = {
-      name: $("#newName").val().trim(),
-      username: $("#newUsername").val().trim(),
-      password: $("#newPassword").val().trim()
+    function signUp() {
+        var newUser = {
+            name: $("#newName").val().trim(),
+            username: $("#newUsername").val().trim(),
+            password: $("#newPassword").val().trim()
+        }
+        var userName = $("#newUsername").val().trim();
+
+        $.get("/api/users/" + userName, function(data) {
+            console.log(data);
+
+            if (data) {
+                $("#newUsername").val("username exists!");
+                $("#newName").val("");
+                $("#newPassword").val("");
+            } else if (!data) {
+                $.post("/api/signup", newUser);
+                $("#newName").val("");
+                $("#newUsername").val("");
+                $("#newPassword").val("");
+            }
+
+        });
     }
-    var userName = $("#newUsername").val().trim();
 
-    $.get("/api/users/" + userName, function(data){
-      console.log(data);
+    function signIn() {
+        var userName = $("#username").val().trim();
+        var password = $("#password").val().trim();
 
-        if(data){
-          $("#newUsername").val("username exists!");
-          $("#newName").val("");
-          $("#newPassword").val("");
-        }
-        else if(!data){
-          $.post("/api/signup", newUser);
-          $("#newName").val("");
-          $("#newUsername").val("");
-          $("#newPassword").val("");
-        }
+        $.get("/api/signin/" + userName, function(data) {
+            console.log(data);
+            console.log(userName);
+            console.log(password);
+            if (data.username === userName && data.password === password) {
 
-    });
-  }
+                window.location.href = "/app#" + data.username;
+            } else {
 
-  function signIn(){
-    var userName = $("#username").val().trim();
-    var password = $("#password").val().trim();
+                $("#username").val("invalid information");
+                $("#password").val("");
+            }
+        });
+    }
 
-    $.get("/api/signin/" + userName, function(data){
-      console.log(data);
-      console.log(userName);
-      console.log(password);
-      if(data.username === userName && data.password === password){
-
-        window.location.href = "/app#" + data.username;
-      }
-      else{
-
-        $("#username").val("invalid information");
-        $("#password").val("");
-      }
-    });
-  }
-
-  $(document).on("click", ".signUp", signUp);
-  $(document).on("click", ".signIn", signIn);
+    $(document).on("click", ".signUp", signUp);
+    $(document).on("click", ".signIn", signIn);
 
 
 });

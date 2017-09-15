@@ -77,4 +77,16 @@ module.exports = function(app){
     });
   });
 
+  app.get("/api/allpost/:username", function(req, res){
+
+    db.Users.findAll({
+      where: {
+        username: {$notIn: [req.params.username]}
+      }
+
+    }).then(function(results){
+      res.json(results);
+    });
+  });
+
 }

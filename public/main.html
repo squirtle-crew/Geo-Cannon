@@ -5,7 +5,7 @@
   <head>
 
     <title>GeoCannon</title>
-
+    <meta charset="utf-8">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 -->
 
@@ -28,27 +28,27 @@
               <div class="panel panel-default">
 
                 <div class="panel-body">
-                  <h4>Sign Up</h4>
+                  Sign Up
                 </div>
                     <div class="panel-footer panel-color">
 
                       <form>
                           <div class="form-group">
-                            <label for="exampleInputName" class="signupText">Full Name</label>
+                            <label for="exampleInputName">Full Name</label>
                             <input type="text" class="form-control" id="newName" placeholder="Full Name">
                           </div>
 
                           <div class="form-group">
-                            <label for="exampleInputUsername" class="signupText">Username</label>
+                            <label for="exampleInputUsername">Username</label>
                             <input type="text" class="form-control" id="newUsername" placeholder="Username">
                           </div>
 
                           <div class="form-group">
-                            <label for="exampleInputPassword" class="signupText">Password</label>
+                            <label for="exampleInputPassword">Password</label>
                             <input type="password" class="form-control" id="newPassword" placeholder="Password">
                           </div>
 
-                          <button type="button" class="btn btn-info btn-lg btn-block signUp">Sign Up</button>
+                          <button type="button" class="btn btn-primary btn-lg btn-block signUp">Sign Up</button>
 
                       </form>
 
@@ -58,8 +58,7 @@
             </div>
 
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-             <h1>Welcome, Please Sign Up</h1>
-             <hr>
+             <h2>Welcome, Please Sign Up</h2>
           </div>
 
         </div>
@@ -95,13 +94,48 @@
 
       <div class="row">
 
+      <div class="hidden-xs">
         <div id="nav">
-          <a href="#turtle1" id="turtle1"> <h4>Geo-Cannnon</h4></a>
-          <a href="#turtle2" id="turtle2"><h4>About</h4></a>
-          <a href="#turtle3" id="turtle3"><h4>Turtles?</h4></a>
-          <a href="#howItWorks"><h4>Advantages</h4></a>
-          <button type="button" class="btn btn-primary btn-lg navbar-btn" data-toggle="modal" data-target="#signInModal">Sign In</button>
+          <a href="#turtle1" id="turtle1"> Geo-Cannnon</a>
+          <a href="#turtle2" id="turtle2">About</a>
+          <a href="#turtle3" id="turtle3">Turtles?</a>
+          <a href="#howItWorks">Advantages</a>
+          <button type="button" class="btn btn-info navbar-btn" data-toggle="modal" data-target="#signInModal">Sign In!</button>
         </div>
+      </div>
+
+      <div class="visible-xs">
+        <!-- Start of navbar -->
+          <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid navbar-custom">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="row">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  </button>
+                  <div class="col-xs-12 phone-nav">
+                    <a class="navbar-brand" href="index.html" id="logo">Geo-Cannon</a>
+                  </div>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="navbar-nav navbar-right navbar-right-custom">
+                    <li><a href="#turtle1" id="turtle1"> Home</a></li>
+                    <li><a href="#turtle2" id="turtle2">About</a></li>
+                    <li><a href="#turtle3" id="turtle3">Turtles?</a></li>
+                    <li><a href="#howItWorks">Advantages</a></li>
+                    <li><a href="#"data-toggle="modal" data-target="#signInModal">Sign In!</a></li>
+                  </ul>
+                  </div><!-- /.navbar-collapse -->
+                </div>
+                </div><!-- /.container-fluid -->
+              </nav>
+              <!-- End of navbar -->
+              </div>
 
           <!--Modal 1 (Sign IN!)-->
 
@@ -155,7 +189,7 @@
               <li>No longer will you get lost or lose your friends!</li>
               <li>Find and chat with new friends!</li>
               <li>Become part of a community and discover new people!</li>
-              <li>Sign in and out our website at your convience and simply turn the sign off when you don't want to chat any longer!</li>
+              <li>Sign in and out our website at your convience and simply turn the it off when you don't want to chat any longer!</li>
             </ul>
           </div>
 
@@ -163,14 +197,12 @@
 
         <div class="row">
           <div class="footer">
-            <p class="text-center copyright">&copy; 2017 Geo-Cannon</p>
+            <p class="text-center">&copy; 2017 Geo-Cannon</p>
           </div>
         </div>
 
-    <script type="text/javascript" src="js/navbar.js"></script>
-    <script type="text/javascript" src="js/view.js">
+    <script src="js/view.js"></script>
 
-    </script>
     </body>
 
 </html>

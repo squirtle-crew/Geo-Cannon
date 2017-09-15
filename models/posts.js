@@ -8,11 +8,11 @@ module.exports = function(sequelize, DataTypes){
       }
     },
     longitude: {
-      type: DataTypes.DECIMAL(10, 2),
+      type: DataTypes.DECIMAL(10, 7),
       allowNull: false
     },
     latitude: {
-      type: DataTypes.DECIMAL(10, 2),
+      type: DataTypes.DECIMAL(10, 7),
       allowNull: false
   }
 });

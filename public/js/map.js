@@ -105,7 +105,7 @@ function initMap() {
 
             // ------------------TURTLE ICON END---------------------//
             // -----------------USER MESSAGE START-------------------//
-            var contentString = '<h4><u>' + results.name + "'s Message</u></h4>" + '<p>'+ data[0].updatedAt + '</p>' + '<p>' + data[0].post +'</p>';
+            var contentString = '<h4><u>' + results.name + "'s Message</u></h4>" + '<p>'+ new Date(data[0].updatedAt).toUTCString() + '</p>' + '<p>' + data[0].post +'</p>';
             var infowindow = new google.maps.InfoWindow({
                 content: contentString,
                 maxWidth: 200

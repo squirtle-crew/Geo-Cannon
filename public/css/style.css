@@ -117,8 +117,12 @@ body, html {
 .TurtleText1{
 
   font-size: 150%;
-  line-height: 200%;
+  line-height: 130%;
 
+}
+
+.TurtleText2{
+  line-height: 170%;
 }
 
 .panelTurtle2{

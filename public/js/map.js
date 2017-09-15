@@ -90,6 +90,19 @@ function initMap() {
                 map: map,
                 icon: icon
             });
+
+            var allPost =[
+              ['Other Friend', 33.6449812, -117.83512870000001],  ['Another', 40.6449812, -120.83512870000001]
+            ];
+            for(var i = 0; i < allPost.length; i++){
+              var post = allPost[i];
+              var secondmarker = new google.maps.Marker({
+                  position: {lat: post[1], lng: post[2]},
+                  map: map,
+                  icon: icon
+              });
+            }
+
             // ------------------TURTLE ICON END---------------------//
             // -----------------USER MESSAGE START-------------------//
             var contentString = '<h4><u>' + results.name + "'s Message</u></h4>" + '<p>'+ data[0].updatedAt + '</p>' + '<p>' + data[0].post +'</p>';

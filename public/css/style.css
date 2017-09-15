@@ -1,30 +1,136 @@
-body{
-  background: url('../sea.jpg');
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
-}
-.img{
-opacity: 0.2;
-}
-.navbar-inner{ /*changes color of navbar box*/
-
-  background: transparent!important;
-  border: 1px solid transparent!important;
-  margin-bottom:50px!important;
-}
-.navbarColor{    /*changes color of navbar content*/
-  color:white!important;
+body, html {
+    height: 100%;
+    margin: 0;
+    background-image: url("../images/sea.jpg");
 }
 
-.geoPull{
+.footer{
+  background-color: white;
+  height: 75px;
+  bottom: 0px;
+  font-weight: bold;
+}
 
-  position:fixed!important;
-  left:0px!important;
+.copyright{
+  position: relative;
+  top: 12px;
+}
+
+#nav {
+  background-color: #333;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 75px;
+  display:block;
+  transition: top 0.3s;
+}
+
+#nav a{
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 13px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#nav #turtle1{
+
+  float: left;
+  display: block;
+
+}
+
+#nav button{
+
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  margin-right: 10px;
+
+}
+
+#nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.bg1 {
+    /* The image used */
+    background-image: url("../images/turtle_background.jpg");
+
+    /* Full height */
+    height: 150%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg2 {
+    /* The image used */
+    background-image: url("../images/turtle2.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg3 {
+    /* The image used */
+    background-image: url("../images/turtle3.jpg");
+
+    /* Full height */
+    height: 125%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg4{
+  background-color: #333;
+  color: white;
+}
+
+.formTurtle{
+
+  margin-top:20%;
+
+}
+
+.panelTurtle1{
+
+  margin-top:20%;
+
+}
+
+.TurtleText1{
+
+  font-size: 150%;
+  line-height: 200%;
+
+}
+
+.panelTurtle2{
+
+  margin-top:15%;
+
+}
+
+.TurtleText2{
+
+  font-size: 150%;
+  line-height: 200%;
 
 }
 
@@ -32,7 +138,35 @@ opacity: 0.2;
   background-color:#4a4c4f!important;
 }
 
+.signupText{
+  color:white;
+}
+
+.newPost{
+  height: 40px;
+  width: 75px;
+}
+
 #map {
-    height: 700px;
+    height: 400px;
     width: 100%;
-    }
+}
+
+@media screen and (max-width: 768px){
+
+  .newPost{
+    height: 40px;
+    width: 100%;
+    font-size: 18px;
+  }
+
+}
+
+@media screen and (max-width: 640px){
+
+  .newPost{
+    height: 40px;
+    width: 100%;
+  }
+
+}

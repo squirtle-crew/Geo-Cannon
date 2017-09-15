@@ -8,51 +8,107 @@
 
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 -->
-    <link rel="stylesheet" href="css/style.css">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 
   </head>
 
-    <body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <body>
 
+      <!--Links to turtle pictures -->
+        <div id="turtle1" class="bg1">
+          <div class="container">
+            <div class="row formTurtle">
 
-      <div class="container-fluid ">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+              <div class="panel panel-default">
+
+                <div class="panel-body">
+                  <h4>Sign Up</h4>
+                </div>
+                    <div class="panel-footer panel-color">
+
+                      <form>
+                          <div class="form-group">
+                            <label for="exampleInputName" class="signupText">Full Name</label>
+                            <input type="text" class="form-control" id="newName" placeholder="Full Name">
+                          </div>
+
+                          <div class="form-group">
+                            <label for="exampleInputUsername" class="signupText">Username</label>
+                            <input type="text" class="form-control" id="newUsername" placeholder="Username">
+                          </div>
+
+                          <div class="form-group">
+                            <label for="exampleInputPassword" class="signupText">Password</label>
+                            <input type="password" class="form-control" id="newPassword" placeholder="Password">
+                          </div>
+
+                          <button type="button" class="btn btn-info btn-lg btn-block signUp">Sign Up</button>
+
+                      </form>
+
+                    </div>
+
+                </div>
+            </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+             <h1>Welcome, Please Sign Up</h1>
+             <hr>
+          </div>
+
+        </div>
+      </div>
+    </div>
+        <div id="turtle2" class="bg2">
+          <div class="container">
+            <div class="row panelTurtle1">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">About The Site</h3>
+                    </div>
+                  <div class="panel-footer TurtleText1">Welcome to Geo-Cannon!  Our website allows you to dynamically and efficiently chat with other Geo-Cannon users!  Simply post a message to show your location and find other user that are around you to chat with them.  Chatting local made simple.  The Website is a product of the squirtle-crew Team of the UCI Coding Boot Camp! Our team consists of <b>Josiah De La Torre</b>, <a href="https://github.com/jodelat">https://github.com/jodelat</a>, <b>Andrew Nguyen</b>, <a href="https://github.com/andrewnguyen14">https://github.com/andrewnguyen14</a>, <b>Viet Nguyen</b>, <a href="https://github.com/BuiltbyViet">https://github.com/BuiltbyViet</a>, and <b>Michael Mamich</b>, <a href="https://github.com/MMMamich">https://github.com/MMMamich</a>.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="turtle3" class="bg3">
+          <div class="container">
+            <div class="row panelTurtle2">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Why The Turtles?</h3>
+                    </div>
+                  <div class="panel-footer TurtleText2">Whats up with all the turtles man?!?  Well when group projects started for our cohort, team names had to be based on a particular npm package that was available.  We decided that that we would make our own npm package called <em>squirtle-crew</em> and thus our turtle origin!  Go download our npm package at <a href="https://www.npmjs.com/package/squirtle-crew">https://www.npmjs.com/package/squirtle-crew</a>; 271 people already have despite the readme clearly saying that the package does nothing!  Oh and by the way Geo-Cannon is a pun of a pokemon move called hydro cannon, however I'm not going to tell you which pokemon knows that move...<p style="color:red">GOOGLE IT!</p></div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="container-fluid">
 
       <div class="row">
 
-        <nav class="navbar navbar-default navbar-inner navbar-right">
+        <div id="nav">
+          <a href="#turtle1" id="turtle1"> <h4>Geo-Cannnon</h4></a>
+          <a href="#turtle2" id="turtle2"><h4>About</h4></a>
+          <a href="#turtle3" id="turtle3"><h4>Turtles?</h4></a>
+          <a href="#howItWorks"><h4>Advantages</h4></a>
+          <button type="button" class="btn btn-primary btn-lg navbar-btn" data-toggle="modal" data-target="#signInModal">Sign In</button>
+        </div>
 
-          <!-- Brand and toggle get grouped for better mobile display -->
-
-            <div class="navbar-header">
-
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                    <a class="navbar-brand navbarColor navbar-left geoPull" href="#">Geo-Cannon</a>
-
-                      <ul class="nav navbar-nav navbar-inner">
-                        <li><a class="navbarColor" href="#" data-toggle="modal" data-target="#howModal">How It Works <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#" class="navbarColor" data-toggle="modal" data-target="#aboutModal">About</a></li>
-                      </ul>
-
-                      <!-- Trigger the modal with a button -->
-
-                <button type="button" class="btn btn-info navbar-btn" data-toggle="modal" data-target="#signInModal">Sign In!</button>
-
-              </div>
-
-            </div>
-
-          </nav>
-
-          <!-- Modal 1 (Sign IN!)-->
+          <!--Modal 1 (Sign IN!)-->
 
           <div class="modal fade" id="signInModal" role="dialog">
             <div class="modal-dialog">
 
-              <!-- Modal content-->
+            <!--  Modal content -->
 
               <div class="modal-content">
                 <div class="modal-header">
@@ -74,56 +130,14 @@
                       </div>
 
 
-                      <button type="button" class="btn btn-primary btn-lg btn-block signIn">Sign In</button>
+                      <button type="button" class="btn btn-primary btn-lg btn-block signIn"data-dismiss="modal">Sign In</button>
 
                   </form>
                 </div>
 
-                <!-- <div class="modal-footer">
+                <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div> -->
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Modal 2 (About)-->
-
-          <div class="modal fade" id="aboutModal" role="dialog">
-            <div class="modal-dialog">
-
-              <!-- Modal content-->
-
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h3>About Us</h3>
                 </div>
-
-                <div class="modal-body">
-
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Modal 3 (How it works)-->
-
-          <div class="modal fade" id="howModal" role="dialog">
-            <div class="modal-dialog">
-
-              <!-- Modal content-->
-
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h3>How it works</h3>
-                </div>
-
-                <div class="modal-body">
-                  <p>
-                </div>
-
               </div>
 
             </div>
@@ -131,54 +145,32 @@
 
       </div>
 
+
+
         <div class="row">
 
-            <div class="col-lg-6">
-
-              <div class="panel panel-default">
-
-                <div class="panel-body">
-                  Sign Up
-                </div>
-                    <div class="panel-footer panel-color">
-
-                      <form>
-                          <div class="form-group">
-                            <label for="exampleInputName">Full Name</label>
-                            <input type="text" class="form-control" id="newName" placeholder="Full Name">
-                          </div>
-
-                          <div class="form-group">
-                            <label for="exampleInputUsername">Username</label>
-                            <input type="text" class="form-control" id="newUsername" placeholder="Username">
-                          </div>
-
-                          <div class="form-group">
-                            <label for="exampleInputPassword">Password</label>
-                            <input type="password" class="form-control" id="newPassword" placeholder="Password">
-                          </div>
-
-                          <button type="button" class="btn btn-primary btn-lg btn-block signUp">Sign Up</button>
-
-                      </form>
-
-                    </div>
-
-                </div>
-            </div>
-
-          <div class="col-lg-6">
-             <h2>Welcome, Please Sign Up</h2>
+          <div style="padding:15px 15px 250px;font-size:30px" id="howItWorks" class="bg4">
+            <p><b>This Website will revolutionize the way you chat, as you can now locate <i>exactally</i> were others users are located.</b></p>
+            <ul>
+              <li>No longer will you get lost or lose your friends!</li>
+              <li>Find and chat with new friends!</li>
+              <li>Become part of a community and discover new people!</li>
+              <li>Sign in and out our website at your convience and simply turn the sign off when you don't want to chat any longer!</li>
+            </ul>
           </div>
 
         </div>
 
+        <div class="row">
+          <div class="footer">
+            <p class="text-center copyright">&copy; 2017 Geo-Cannon</p>
+          </div>
+        </div>
 
-    </div>
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <script type="text/javascript" src="js/view.js">
 
-    <script type="text/javascript" src="js/view.js"></script>
-    <!-- <script type="text/javascript" src="js/modal.js"></script> -->
-
+    </script>
     </body>
 
 </html>

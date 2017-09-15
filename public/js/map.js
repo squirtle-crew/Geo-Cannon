@@ -43,11 +43,12 @@ function initMap() {
                 $.get("/api/posts/" + id, function(data){
                   console.log(data);
                   var newDiv = $("<div>");
+                  var olist = $("<ol>");
                   for(i = 0; i < data.length; i++){
-
                     var list = $("<li>");
                     list.html(data[i].post);
-                    newDiv.append(list);
+                    olist.append(list);
+                    newDiv.append(olist);
                   }
                   $(".userspost").html(newDiv);
 

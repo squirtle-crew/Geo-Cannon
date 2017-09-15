@@ -38,7 +38,7 @@ module.exports = function(app){
   app.get("/api/posts/:id", function(req, res){
 
     db.Posts.findAll({
-      limit: 5, 
+      limit: 5,
       order: [['updatedAt', 'DESC']],
       where: {
         UserId: req.params.id
@@ -60,6 +60,21 @@ module.exports = function(app){
     });
   });
 
+  app.put("/api/newpost/:id", function(req, res){
 
+    db.Users.update({
+      NewestPost: req.body.post,
+      longitude: req.body.longitude,
+      latitude: req.body.latitude,
+    },
+      {
+        where: {
+          id: req.params.id
+        }
+
+    }).then(function(newpost){
+      res.json(newpost);
+    });
+  });
 
 }

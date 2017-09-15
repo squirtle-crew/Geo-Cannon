@@ -50,8 +50,23 @@ function initMap() {
                     olist.append(list);
                     newDiv.append(olist);
                   }
-                  $(".userspost").html(newDiv);
 
+                  var userPost = {
+                    post: data[0].post,
+                    longitude: data[0].longitude,
+                    latitude: data[0].latitude
+                  }
+
+                  $.ajax({
+                    method: "PUT",
+                    url: "/api/newpost/" + id,
+                    data: userPost
+                  })
+                  .done(function() {
+                    console.log("sucess");
+                  });
+
+                  $(".userspost").html(newDiv);
                   $("#UserInput").val("");
 
 

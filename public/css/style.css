@@ -16,6 +16,10 @@ body, html {
   top: 12px;
 }
 
+.signuptext{
+  color: white;
+}
+
 #nav {
   background-color: #333;
   position: fixed;

@@ -60,16 +60,11 @@ function initMap() {
                     method: "PUT",
                     url: "/api/newpost/" + id,
                     data: userPost
-                  })
-                  .done(function() {
-                    console.log("sucess");
                   });
 
                   $(".userspost").html(newDiv);
                   $("#UserInput").val("");
 
-
-            console.log(pos);
             // -----------------CURRENT POSITION END-------------------//
             // ------------------TURTLE ICON START---------------------//
             var icon = {

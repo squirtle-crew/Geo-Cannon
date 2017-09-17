@@ -22,7 +22,9 @@ $(document).ready(function() {
                 $("#confirmPassword").val("");
                 $("#newName").val("");
                 $("#newPassword").val("");
-            } else if (!data && $("#newPassword").val() === $("#confirmPassword").val()) {
+            }
+
+            else if (!data && $("#newPassword").val() === $("#confirmPassword").val()) {
                 $.post("/api/signup", newUser);
                 $("#successmessage").html("<div class='alert alert-success fade in'>" +
                   "<a href='#' class='close' data-dismiss='alert'>&times;</a>" +
@@ -35,6 +37,20 @@ $(document).ready(function() {
             }
 
         });
+    }
+
+    function emptyData(){
+      if ($("#newName").val()=="" || $("#newUsername").val()=="" || $("#newPassword").val()=="" || $("#confirmPassword").val()=="") {
+
+          $("#successmessage").html("<div class='alert alert-danger fade in'>" +
+            "<a href='#' class='close' data-dismiss='alert'>&times;</a>" +
+            "<strong>'Error!'</strong> " + 'Must fill out all forms.' +
+            "</div>");
+          $("#newName").val("");
+          $("#newUsername").val("");
+          $("#newPassword").val("");
+          $("#confirmPassword").val("");
+      }
     }
 
     function signIn() {
@@ -56,7 +72,10 @@ $(document).ready(function() {
         });
     }
 
-    $(document).on("click", ".signUp", signUp);
+    $(document).on("click", ".signUp", function(){
+      emptyData();
+      signUp();
+    });
     $(document).on("click", ".signIn", signIn);
 
 

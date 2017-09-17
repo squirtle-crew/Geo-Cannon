@@ -13,15 +13,25 @@ $(document).ready(function() {
         $.get("/api/users/" + userName, function(data) {
             console.log(data);
 
-            if (data) {
-                $("#newUsername").val("username exists!");
+            if (data || $("#newPassword").val() !== $("#confirmPassword").val()) {
+              $("#successmessage").html("<div class='alert alert-danger fade in'>" +
+                "<a href='#' class='close' data-dismiss='alert'>&times;</a>" +
+                "<strong>'Error!'</strong> " + 'Either username exists or passwords do not match.' +
+                "</div>");
+                $("#newUsername").val("");
+                $("#confirmPassword").val("");
                 $("#newName").val("");
                 $("#newPassword").val("");
-            } else if (!data) {
+            } else if (!data && $("#newPassword").val() === $("#confirmPassword").val()) {
                 $.post("/api/signup", newUser);
+                $("#successmessage").html("<div class='alert alert-success fade in'>" +
+                  "<a href='#' class='close' data-dismiss='alert'>&times;</a>" +
+                  "<strong>'Success!'</strong> " + 'Your account has been made successfully.' +
+                  "</div>");
                 $("#newName").val("");
                 $("#newUsername").val("");
                 $("#newPassword").val("");
+                $("#confirmPassword").val("");
             }
 
         });

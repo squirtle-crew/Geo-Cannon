@@ -1,5 +1,5 @@
 //----------------------------------Google Maps API----------------------------------------------//
-
+$(document).on("click", ".newPost", initMap);
 
 
 // Note: This requires that you consent to location sharing when
@@ -37,93 +37,94 @@ function initMap() {
                 UserId: results.id
               }
 
-              $.post("/api/post", newPost);
-              var id = results.id
+              $.post("/api/post", newPost).then(function(){
+                var id = results.id
 
-              $.get("/api/posts/" + id, function(data){
-                var newDiv = $("<div>");
-                var olist = $("<ol>");
-                for(i = 0; i < data.length; i++){
-                var list = $("<li>");
-                    list.html(data[i].post);
-                    olist.append(list);
-                    newDiv.append(olist);
-                  }
+                $.get("/api/posts/" + id, function(data){
+                  var newDiv = $("<div>");
+                  var olist = $("<ol>");
+                  for(i = 0; i < data.length; i++){
+                  var list = $("<li>");
+                      list.html(data[i].post);
+                      olist.append(list);
+                      newDiv.append(olist);
+                    }
 
-                  var userPost = {
-                    post: data[0].post,
-                    longitude: data[0].longitude,
-                    latitude: data[0].latitude
-                  }
+                    var userPost = {
+                      post: data[0].post,
+                      longitude: data[0].longitude,
+                      latitude: data[0].latitude
+                    }
 
-                  $.ajax({
-                    method: "PUT",
-                    url: "/api/newpost/" + id,
-                    data: userPost
+                    $.ajax({
+                      method: "PUT",
+                      url: "/api/newpost/" + id,
+                      data: userPost
+                    });
+                    $(".userspost").html(newDiv);
+                    $("#UserInput").val("");
+
+              // -----------------CURRENT POSITION END-------------------//
+              // ------------------TURTLE ICON START---------------------//
+              var icon = {
+                  url: "images/turtle-icon.png",
+                  scaledSize: new google.maps.Size(60, 60),
+                  origin: new google.maps.Point(0, 0),
+                  anchor: new google.maps.Point(17, 34),
+              };
+
+              var friendicon = {
+                  url: "images/rabbit.png",
+                  scaledSize: new google.maps.Size(60, 60),
+                  origin: new google.maps.Point(0, 0),
+                  anchor: new google.maps.Point(17, 34),
+              };
+
+              var everyPost = [];
+              $.get("/api/allpost/" + results.username, function(response){
+                var infowindow = new google.maps.InfoWindow();
+                var secondmarker, i;
+                for(var i = 0; i < response.length; i++){
+
+                  everyPost.push([response[i].name , response[i].NewestPost, parseFloat(response[i].latitude), parseFloat(response[i].longitude), response[i].updatedAt]);
+
+                  var secondmarker = new google.maps.Marker({
+                      position: {lat: parseFloat(response[i].latitude), lng: parseFloat(response[i].longitude)},
+                      map: map,
+                      icon: friendicon
                   });
+                  google.maps.event.addListener(secondmarker, "click", (function(secondmarker, i){
+                    return function(){
+                      infowindow.setContent('<h4><u>' + everyPost[i][0] + "'s Message</u></h4>" + "<p>" + new Date(everyPost[i][4]).toUTCString() + "</p>" + '<p>' + everyPost[i][1] +'</p>');
+                      infowindow.open(map, secondmarker);
+                    }
+                  })(secondmarker, i));
+                }
+              });
 
-                  $(".userspost").html(newDiv);
-                  $("#UserInput").val("");
-
-            // -----------------CURRENT POSITION END-------------------//
-            // ------------------TURTLE ICON START---------------------//
-            var icon = {
-                url: "images/turtle-icon.png",
-                scaledSize: new google.maps.Size(60, 60),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(17, 34),
-            };
-
-            var friendicon = {
-                url: "images/rabbit.png",
-                scaledSize: new google.maps.Size(60, 60),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(17, 34),
-            };
-
-            var everyPost = [];
-            $.get("/api/allpost/" + results.username, function(response){
-              var infowindow = new google.maps.InfoWindow();
-              var secondmarker, i;
-              for(var i = 0; i < response.length; i++){
-
-                everyPost.push([response[i].name , response[i].NewestPost, parseFloat(response[i].latitude), parseFloat(response[i].longitude), response[i].updatedAt]);
-
-                var secondmarker = new google.maps.Marker({
-                    position: {lat: parseFloat(response[i].latitude), lng: parseFloat(response[i].longitude)},
-                    map: map,
-                    icon: friendicon
-                });
-                google.maps.event.addListener(secondmarker, "click", (function(secondmarker, i){
-                  return function(){
-                    infowindow.setContent('<h4><u>' + everyPost[i][0] + "'s Message</u></h4>" + "<p>" + new Date(everyPost[i][4]).toUTCString() + "</p>" + '<p>' + everyPost[i][1] +'</p>');
-                    infowindow.open(map, secondmarker);
-                  }
-                })(secondmarker, i));
+              var post = {
+                lat: parseFloat(data[0].latitude),
+                lng: parseFloat(data[0].longitude)
               }
-            });
 
-            var post = {
-              lat: parseFloat(data[0].latitude),
-              lng: parseFloat(data[0].longitude)
-            }
+              var marker = new google.maps.Marker({
+                  position: post,
+                  map: map,
+                  icon: icon
+              });
+              // ------------------TURTLE ICON END---------------------//
+              // -----------------USER MESSAGE START-------------------//
+              var contentString = '<h4><u>' + results.name + "'s Message</u></h4>" + '<p>'+ new Date(data[0].updatedAt).toUTCString() + '</p>' + '<p>' + data[0].post +'</p>';
+              var myinfowindow = new google.maps.InfoWindow({
+                  content: contentString,
+                  maxWidth: 200
+              });
+              marker.addListener('click', function() {
+                  myinfowindow.open(map, marker);
+              });
+              });
+              });
 
-            var marker = new google.maps.Marker({
-                position: post,
-                map: map,
-                icon: icon
-            });
-            // ------------------TURTLE ICON END---------------------//
-            // -----------------USER MESSAGE START-------------------//
-            var contentString = '<h4><u>' + results.name + "'s Message</u></h4>" + '<p>'+ new Date(data[0].updatedAt).toUTCString() + '</p>' + '<p>' + data[0].post +'</p>';
-            var myinfowindow = new google.maps.InfoWindow({
-                content: contentString,
-                maxWidth: 200
-            });
-            marker.addListener('click', function() {
-                myinfowindow.open(map, marker);
-            });
-            });
             });
             // -----------------USER MESSAGE END-------------------//
 
@@ -144,5 +145,3 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
 }
-
-$(document).on("click", ".newPost", initMap);

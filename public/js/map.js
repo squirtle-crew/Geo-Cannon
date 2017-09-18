@@ -1,6 +1,6 @@
 //----------------------------------Google Maps API----------------------------------------------//
-$(document).on("click", ".newPost", initMap);
 
+$(document).on("click", ".newPost", initMap);
 
 // Note: This requires that you consent to location sharing when
 // prompted by your browser. If you see the error "The Geolocation service
@@ -37,9 +37,10 @@ function initMap() {
                 UserId: results.id
               }
 
-              $.post("/api/post", newPost).then(function(){
-                var id = results.id
+              $.post("/api/post", newPost);
+              var id = results.id
 
+              setTimeout(function(){
                 $.get("/api/posts/" + id, function(data){
                   var newDiv = $("<div>");
                   var olist = $("<ol>");
@@ -61,8 +62,10 @@ function initMap() {
                       url: "/api/newpost/" + id,
                       data: userPost
                     });
+
                     $(".userspost").html(newDiv);
                     $("#UserInput").val("");
+
 
               // -----------------CURRENT POSITION END-------------------//
               // ------------------TURTLE ICON START---------------------//
@@ -123,7 +126,7 @@ function initMap() {
                   myinfowindow.open(map, marker);
               });
               });
-              });
+            },300);
 
             });
             // -----------------USER MESSAGE END-------------------//

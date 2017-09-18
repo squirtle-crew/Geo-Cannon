@@ -13,7 +13,7 @@ describe("Geo-Cannon", function() {
     return Nightmare({
         show: true
       })
-      .goto("https://lit-dusk-87215.herokuapp.com/")
+      .goto("https://arcane-waters-69816.herokuapp.com")
       // Just to be safe.d
       .wait(login1)
       // Click the login button.
